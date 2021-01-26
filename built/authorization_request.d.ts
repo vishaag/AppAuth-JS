@@ -18,6 +18,7 @@ export interface AuthorizationRequestJson {
 export interface AuthorizationRequestOptions {
     redirectUri: string;
     redirectPage: string;
+    customOpener: Function;
 }
 /**
  * Represents the AuthorizationRequest.
