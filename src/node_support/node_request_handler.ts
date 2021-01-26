@@ -123,7 +123,11 @@ export class NodeBasedHandler extends AuthorizationRequestHandler {
           server.listen(this.httpServerPort);
           const url = this.buildRequestUrl(configuration, request);
           log('Making a request to ', request, url);
-          opener(url);
+          if (options && options.customOpener) {
+            options.customOpener(url);
+          } else {
+            opener(url);
+          }
         })
         .catch((error) => {
           log('Something bad happened ', error);
